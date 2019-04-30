@@ -6,11 +6,7 @@ from imutils import paths
 import numpy as np
 import argparse
 import cv2
-<<<<<<< HEAD
 import matplotlib.pyplot as plt
-
-=======
->>>>>>> 006f6e4f55c40e8557f5aae40c8436b84b87db29
 
 # Construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -45,25 +41,11 @@ model = load_model(args["model"])
 # Make predictions on the images
 print("[INFO] Predicting...")
 predictions = model.predict(data, batch_size=32).argmax(axis=1)
-<<<<<<< HEAD
-# predictions = model.predict(data, batch_size=32)
-
-print(predictions)
-=======
-
->>>>>>> 006f6e4f55c40e8557f5aae40c8436b84b87db29
 # loop over the sample images
 for (i, image_path) in enumerate(image_paths):
     # Load the example image, draw the prediction, and display it
     image = cv2.imread(image_path)
-<<<<<<< HEAD
 
     cv2.putText(image, "Label: {}".format(classLabels[predictions[i]]), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-#     plt.show()
     plt.savefig('./predictions/image_{}'.format(i))
-=======
-    cv2.putText(image, "Label: {}".format(classLabels[predictions[i]]), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-    cv2.imshow("Image", image)
-    cv2.waitKey(0)
->>>>>>> 006f6e4f55c40e8557f5aae40c8436b84b87db29
